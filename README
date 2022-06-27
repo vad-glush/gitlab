@@ -1,0 +1,19 @@
+Сам докер контейнер
+
+
+sudo docker run --detach \
+  --hostname gitlab.NAME.com \
+  --publish 0.0.0.0:443:443 \
+  --publish 0.0.0.0.13:80:80 \
+  --publish 0.0.0.0:222:22 \
+  --name gitlab \
+  --restart always \
+  --volume /var/gitlab/config:/etc/gitlab \
+  --volume /var/gitlab/logs:/var/log/gitlab \
+  --volume /var/gitlab/data:/var/opt/gitlab \
+  --shm-size 256m \
+  gitlab/gitlab-ee:latest
+  
+  
+  После создания контейнера можно заменить файл конфигурации с уже включенным и настроенным LDAP
+ 
